@@ -1,0 +1,60 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 15px;
+  background: #00aaff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #008ecc;
+}
+
+#studentsList ul {
+  list-style: none;
+  padding: 0;
+}
+
+#studentsList li {
+  background: #fff;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+a {
+  margin-left: 10px;
+  color: #0077cc;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
