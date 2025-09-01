@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="counterApp" class="h-full bg-gray-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AngularJS Counter - Modern UI</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    /* Simple transition for the counter number */
+    .count-display {
+        transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    }
+    .count-display.ng-animate {
+        transition: 0.5s linear all;
+    }
+  </style>
+</head>
+<body ng-controller="CounterController" class="h-full flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+
+  <div class="w-full max-w-sm mx-auto bg-white dark:bg-gray-800 shadow-2xl rounded-2xl p-8 text-center">
+    
+    <!-- Title -->
+    <h2 class="text-2xl font-bold text-gray-500 dark:text-gray-400 mb-2">COUNTER</h2>
+
+    <!-- Counter Display -->
+    <div class="my-8">
+      <h1 class="text-8xl font-black text-gray-800 dark:text-white count-display" ng-class="{'text-green-500': count > 0, 'text-red-500': count < 0}">{{ count }}</h1>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex items-center justify-center space-x-4">
+      <!-- Decrement Button -->
+      <button 
+        class="group w-16 h-16 rounded-full bg-red-500 hover:bg-red-600 text-white text-3xl font-bold shadow-lg transform transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-red-300 dark:focus:ring-red-800"
+        ng-click="decrement()">
+        <i class="fas fa-minus"></i>
+      </button>
+
+      <!-- Increment Button -->
+      <button 
+        class="group w-16 h-16 rounded-full bg-green-500 hover:bg-green-600 text-white text-3xl font-bold shadow-lg transform transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-800"
+        ng-click="increment()">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+
+    <!-- Reset Button -->
+    <div class="mt-8">
+        <button 
+            class="w-full py-3 px-4 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+            ng-click="reset()">
+            <i class="fas fa-sync-alt mr-2"></i> Reset
+        </button>
+    </div>
+
+  </div>
+
+  <script>
+    // Self-executing function to avoid polluting the global scope
+    (function() {
+      'use strict';
+
+      /**
+       * AngularJS application module named 'counterApp'.
+       */
+      angular.module('counterApp', [])
+        /**
+         * Controller for the counter functionality.
+         * @param {object} $scope - The scope object for the controller.
+         */
+        .controller('CounterController', function($scope) {
+          // Initialize the count to 0
+          $scope.count = 0;
+
+          /**
+           * Increments the counter by 1.
+           */
+          $scope.increment = function() {
+            $scope.count++;
+          };
+
+          /**
+           * Decrements the counter by 1.
+           */
+          $scope.decrement = function() {
+            $scope.count--;
+          };
+
+          /**
+           * Resets the counter back to 0.
+           */
+          $scope.reset = function() {
+            $scope.count = 0;
+          };
+        });
+    })();
+  </script>
+
+</body>
+</html>
