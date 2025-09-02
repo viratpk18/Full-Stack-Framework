@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test API</title>
+</head>
+<body>
+    <h1>Testing Quiz API</h1>
+    <div id="result"></div>
+    
+    <script>
+        // Test all topics
+        const topics = ['javascript', 'python', 'java', 'mongodb', 'sql', 'angular', 'express', 'node'];
+        
+        topics.forEach(topic => {
+            fetch(`http://localhost:3000/questions/${topic}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(`${topic}:`, data);
+                    document.getElementById('result').innerHTML += 
+                        `<p><strong>${topic.toUpperCase()}:</strong> ${data.length} questions loaded ✅</p>`;
+                })
+                .catch(error => {
+                    console.error(`Error loading ${topic}:`, error);
+                    document.getElementById('result').innerHTML += 
+                        `<p><strong>${topic.toUpperCase()}:</strong> Failed to load ❌</p>`;
+                });
+        });
+    </script>
+</body>
+</html>

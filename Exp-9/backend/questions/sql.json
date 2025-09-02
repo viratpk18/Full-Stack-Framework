@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Which SQL statement is used to extract data from a database?",
+    "options": ["SELECT", "GET", "EXTRACT", "FETCH"],
+    "answer": "SELECT"
+  },
+  {
+    "question": "Which SQL statement is used to update data in a database?",
+    "options": ["UPDATE", "MODIFY", "CHANGE", "ALTER"],
+    "answer": "UPDATE"
+  },
+  {
+    "question": "Which SQL statement is used to delete data from a database?",
+    "options": ["DELETE", "REMOVE", "DROP", "CLEAR"],
+    "answer": "DELETE"
+  },
+  {
+    "question": "Which SQL statement is used to insert new data in a database?",
+    "options": ["INSERT INTO", "ADD", "CREATE", "PUT"],
+    "answer": "INSERT INTO"
+  },
+  {
+    "question": "Which SQL keyword is used to sort the result-set?",
+    "options": ["ORDER BY", "SORT BY", "GROUP BY", "ARRANGE BY"],
+    "answer": "ORDER BY"
+  },
+  {
+    "question": "Which SQL keyword is used to filter records?",
+    "options": ["WHERE", "FILTER", "HAVING", "CONDITION"],
+    "answer": "WHERE"
+  },
+  {
+    "question": "Which SQL function returns the number of rows?",
+    "options": ["COUNT()", "SUM()", "AVG()", "MAX()"],
+    "answer": "COUNT()"
+  },
+  {
+    "question": "Which SQL clause is used with aggregate functions?",
+    "options": ["GROUP BY", "ORDER BY", "WHERE", "SELECT"],
+    "answer": "GROUP BY"
+  },
+  {
+    "question": "Which SQL keyword is used to retrieve unique values?",
+    "options": ["DISTINCT", "UNIQUE", "DIFFERENT", "SEPARATE"],
+    "answer": "DISTINCT"
+  },
+  {
+    "question": "Which SQL constraint ensures that a column cannot have a NULL value?",
+    "options": ["NOT NULL", "UNIQUE", "PRIMARY KEY", "CHECK"],
+    "answer": "NOT NULL"
+  }
+]

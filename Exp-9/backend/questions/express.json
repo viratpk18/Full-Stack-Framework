@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is Express.js?",
+    "options": ["Node.js web framework", "JavaScript library", "Database", "CSS framework"],
+    "answer": "Node.js web framework"
+  },
+  {
+    "question": "Which method is used to create an Express application?",
+    "options": ["express()", "app()", "createApp()", "new Express()"],
+    "answer": "express()"
+  },
+  {
+    "question": "Which method is used to define a GET route in Express?",
+    "options": ["app.get()", "app.route()", "app.handle()", "app.request()"],
+    "answer": "app.get()"
+  },
+  {
+    "question": "Which middleware is used to parse JSON bodies in Express?",
+    "options": ["express.json()", "bodyParser.json()", "json()", "parseJson()"],
+    "answer": "express.json()"
+  },
+  {
+    "question": "Which method is used to start an Express server?",
+    "options": ["app.listen()", "app.start()", "app.run()", "app.serve()"],
+    "answer": "app.listen()"
+  },
+  {
+    "question": "What are route parameters in Express denoted by?",
+    "options": [":", "#", "@", "$"],
+    "answer": ":"
+  },
+  {
+    "question": "Which object contains information about the HTTP request?",
+    "options": ["req", "request", "http", "input"],
+    "answer": "req"
+  },
+  {
+    "question": "Which object is used to send HTTP response?",
+    "options": ["res", "response", "output", "reply"],
+    "answer": "res"
+  },
+  {
+    "question": "Which method is used to send JSON response in Express?",
+    "options": ["res.json()", "res.send()", "res.write()", "res.return()"],
+    "answer": "res.json()"
+  },
+  {
+    "question": "Which Express method is used to handle all HTTP methods?",
+    "options": ["app.all()", "app.any()", "app.every()", "app.handle()"],
+    "answer": "app.all()"
+  }
+]

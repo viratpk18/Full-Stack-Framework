@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What type of database is MongoDB?",
+    "options": ["NoSQL", "SQL", "Relational", "Graph"],
+    "answer": "NoSQL"
+  },
+  {
+    "question": "What is the basic unit of data in MongoDB?",
+    "options": ["Document", "Row", "Table", "Field"],
+    "answer": "Document"
+  },
+  {
+    "question": "Which format does MongoDB use to store documents?",
+    "options": ["BSON", "JSON", "XML", "CSV"],
+    "answer": "BSON"
+  },
+  {
+    "question": "What is a collection in MongoDB?",
+    "options": ["Group of documents", "Single document", "Database schema", "Index structure"],
+    "answer": "Group of documents"
+  },
+  {
+    "question": "Which method is used to insert a document in MongoDB?",
+    "options": ["insertOne()", "add()", "create()", "save()"],
+    "answer": "insertOne()"
+  },
+  {
+    "question": "Which method is used to find documents in MongoDB?",
+    "options": ["find()", "search()", "query()", "select()"],
+    "answer": "find()"
+  },
+  {
+    "question": "What is the default port for MongoDB?",
+    "options": ["27017", "3306", "5432", "1433"],
+    "answer": "27017"
+  },
+  {
+    "question": "Which operator is used for equality matching in MongoDB queries?",
+    "options": ["$eq", "$match", "$equal", "$is"],
+    "answer": "$eq"
+  },
+  {
+    "question": "What is the maximum document size in MongoDB?",
+    "options": ["16MB", "8MB", "32MB", "64MB"],
+    "answer": "16MB"
+  },
+  {
+    "question": "Which method is used to update documents in MongoDB?",
+    "options": ["updateOne()", "modify()", "change()", "edit()"],
+    "answer": "updateOne()"
+  }
+]

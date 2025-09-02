@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Which keyword is used to create a class in Java?",
+    "options": ["class", "Class", "define", "create"],
+    "answer": "class"
+  },
+  {
+    "question": "What is the correct way to declare a variable in Java?",
+    "options": ["int x;", "var x;", "integer x;", "number x;"],
+    "answer": "int x;"
+  },
+  {
+    "question": "Which method is the entry point of a Java program?",
+    "options": ["main()", "start()", "run()", "execute()"],
+    "answer": "main()"
+  },
+  {
+    "question": "Which keyword is used for inheritance in Java?",
+    "options": ["extends", "inherits", "implements", "derives"],
+    "answer": "extends"
+  },
+  {
+    "question": "What is the correct syntax for a single-line comment in Java?",
+    "options": ["//", "#", "/*", "<!--"],
+    "answer": "//"
+  },
+  {
+    "question": "Which access modifier makes a member accessible only within the same package?",
+    "options": ["protected", "private", "public", "default"],
+    "answer": "protected"
+  },
+  {
+    "question": "What is the superclass of all classes in Java?",
+    "options": ["Object", "Class", "Super", "Base"],
+    "answer": "Object"
+  },
+  {
+    "question": "Which keyword is used to prevent inheritance in Java?",
+    "options": ["final", "static", "abstract", "sealed"],
+    "answer": "final"
+  },
+  {
+    "question": "What is the correct way to create an array in Java?",
+    "options": ["int[] arr = new int[5];", "int arr[] = new int(5);", "array int arr = new int[5];", "int arr = new array[5];"],
+    "answer": "int[] arr = new int[5];"
+  },
+  {
+    "question": "Which exception is thrown when dividing by zero in Java?",
+    "options": ["ArithmeticException", "NullPointerException", "ArrayIndexOutOfBoundsException", "IllegalArgumentException"],
+    "answer": "ArithmeticException"
+  }
+]

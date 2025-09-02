@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is Node.js?",
+    "options": ["JavaScript runtime environment", "Web browser", "Database", "CSS framework"],
+    "answer": "JavaScript runtime environment"
+  },
+  {
+    "question": "Which engine does Node.js use to execute JavaScript?",
+    "options": ["V8", "SpiderMonkey", "Chakra", "JavaScriptCore"],
+    "answer": "V8"
+  },
+  {
+    "question": "Which command is used to install packages in Node.js?",
+    "options": ["npm install", "node install", "npm add", "node add"],
+    "answer": "npm install"
+  },
+  {
+    "question": "Which file contains Node.js project dependencies?",
+    "options": ["package.json", "dependencies.json", "node.json", "config.json"],
+    "answer": "package.json"
+  },
+  {
+    "question": "Which method is used to import modules in Node.js?",
+    "options": ["require()", "import()", "include()", "load()"],
+    "answer": "require()"
+  },
+  {
+    "question": "Which object represents the global scope in Node.js?",
+    "options": ["global", "window", "document", "this"],
+    "answer": "global"
+  },
+  {
+    "question": "Which module is used to work with file system in Node.js?",
+    "options": ["fs", "file", "filesystem", "io"],
+    "answer": "fs"
+  },
+  {
+    "question": "Which method is used to create an HTTP server in Node.js?",
+    "options": ["http.createServer()", "server.create()", "http.server()", "createServer()"],
+    "answer": "http.createServer()"
+  },
+  {
+    "question": "Which object contains command line arguments in Node.js?",
+    "options": ["process.argv", "args", "arguments", "cmdline"],
+    "answer": "process.argv"
+  },
+  {
+    "question": "Which method is used to exit a Node.js process?",
+    "options": ["process.exit()", "exit()", "quit()", "stop()"],
+    "answer": "process.exit()"
+  }
+]

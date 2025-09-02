@@ -1,0 +1,10 @@
+<h2>Quiz on {{ topic }}</h2>
+<div ng-repeat="q in questions track by $index">
+  <p>{{$index + 1}}. {{q.question}}</p>
+  <div ng-repeat="opt in q.options">
+    <label>
+      <input type="radio" ng-model="answers[$index]" ng-value="opt"> {{opt}}
+    </label>
+  </div>
+</div>
+<button ng-click="submitQuiz()">Submit</button>

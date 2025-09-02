@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Which is a JavaScript data type?",
+    "options": ["String", "Car", "Table", "Keyboard"],
+    "answer": "String"
+  },
+  {
+    "question": "Which symbol is used for comments?",
+    "options": ["//", "##", "<!--", "/*"],
+    "answer": "//"
+  },
+  {
+    "question": "How do you declare a variable in JavaScript?",
+    "options": ["var myVar;", "variable myVar;", "v myVar;", "declare myVar;"],
+    "answer": "var myVar;"
+  },
+  {
+    "question": "Which method is used to add an element to the end of an array?",
+    "options": ["push()", "add()", "append()", "insert()"],
+    "answer": "push()"
+  },
+  {
+    "question": "What does 'typeof' operator return for an array?",
+    "options": ["array", "object", "list", "undefined"],
+    "answer": "object"
+  },
+  {
+    "question": "Which keyword is used to create a function in JavaScript?",
+    "options": ["function", "def", "create", "func"],
+    "answer": "function"
+  },
+  {
+    "question": "How do you write a conditional statement in JavaScript?",
+    "options": ["if (condition)", "if condition then", "when (condition)", "check (condition)"],
+    "answer": "if (condition)"
+  },
+  {
+    "question": "Which method converts a string to lowercase?",
+    "options": ["toLowerCase()", "toLower()", "lower()", "downCase()"],
+    "answer": "toLowerCase()"
+  },
+  {
+    "question": "What is the correct way to create an object in JavaScript?",
+    "options": ["var obj = {}", "var obj = []", "var obj = ()", "var obj = new()"],
+    "answer": "var obj = {}"
+  },
+  {
+    "question": "Which operator is used for equality comparison without type conversion?",
+    "options": ["===", "==", "=", "!="],
+    "answer": "==="
+  }
+]

@@ -1,0 +1,8 @@
+<h2>Select a Topic</h2>
+<ul>
+  <li ng-repeat="topic in topics">
+    <button ng-click="startQuiz(topic)">
+      Start {{ topic | uppercase }} Quiz
+    </button>
+  </li>
+</ul>

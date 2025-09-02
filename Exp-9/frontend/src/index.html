@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Quiz Application</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+  </style>
+  
+  <!-- Import polyfills for modern features -->
+  <script type="importmap">
+    {
+      "imports": {
+        "@angular/core": "https://unpkg.com/@angular/core@20/bundles/core.umd.js",
+        "@angular/common": "https://unpkg.com/@angular/common@20/bundles/common.umd.js",
+        "@angular/platform-browser": "https://unpkg.com/@angular/platform-browser@20/bundles/platform-browser.umd.js",
+        "@angular/router": "https://unpkg.com/@angular/router@20/bundles/router.umd.js",
+        "@angular/common/http": "https://unpkg.com/@angular/common@20/bundles/common-http.umd.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="loading" style="text-align: center; padding: 50px; color: white;">
+    <h1>Quiz Application</h1>
+    <p>Loading...</p>
+  </div>
+  
+  <app-root style="display: none;"></app-root>
+  
+  <script type="module">
+    // Simple app initialization
+    document.addEventListener('DOMContentLoaded', function() {
+      const loading = document.getElementById('loading');
+      const appRoot = document.querySelector('app-root');
+      
+      // Show a basic homepage until we can load the Angular components
+      setTimeout(() => {
+        loading.style.display = 'none';
+        appRoot.style.display = 'block';
+        appRoot.innerHTML = `
+          <div style="max-width: 800px; margin: 0 auto; padding: 20px; color: white;">
+            <h1 style="text-align: center; margin-bottom: 40px;">Quiz Application</h1>
+            <div style="text-align: center;">
+              <h2>Select a Quiz Topic</h2>
+              <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; min-width: 250px; backdrop-filter: blur(10px);">
+                  <h3 style="color: #4FC3F7; margin-bottom: 15px;">JavaScript</h3>
+                  <p style="margin-bottom: 20px;">Test your knowledge in JavaScript</p>
+                  <button onclick="startQuiz('javascript')" style="background: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold;">
+                    Start JavaScript Quiz
+                  </button>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; min-width: 250px; backdrop-filter: blur(10px);">
+                  <h3 style="color: #4FC3F7; margin-bottom: 15px;">Python</h3>
+                  <p style="margin-bottom: 20px;">Test your knowledge in Python</p>
+                  <button onclick="startQuiz('python')" style="background: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold;">
+                    Start Python Quiz
+                  </button>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; min-width: 250px; backdrop-filter: blur(10px);">
+                  <h3 style="color: #4FC3F7; margin-bottom: 15px;">Java</h3>
+                  <p style="margin-bottom: 20px;">Test your knowledge in Java</p>
+                  <button onclick="startQuiz('java')" style="background: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold;">
+                    Start Java Quiz
+                  </button>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; min-width: 250px; backdrop-filter: blur(10px);">
+                  <h3 style="color: #4FC3F7; margin-bottom: 15px;">MongoDB</h3>
+                  <p style="margin-bottom: 20px;">Test your knowledge in MongoDB</p>
+                  <button onclick="startQuiz('mongodb')" style="background: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold;">
+                    Start MongoDB Quiz
+                  </button>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; min-width: 250px; backdrop-filter: blur(10px);">
+                  <h3 style="color: #4FC3F7; margin-bottom: 15px;">SQL</h3>
+                  <p style="margin-bottom: 20px;">Test your knowledge in SQL</p>
+                  <button onclick="startQuiz('sql')" style="background: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold;">
+                    Start SQL Quiz
+                  </button>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; min-width: 250px; backdrop-filter: blur(10px);">
+                  <h3 style="color: #4FC3F7; margin-bottom: 15px;">Angular</h3>
+                  <p style="margin-bottom: 20px;">Test your knowledge in Angular</p>
+                  <button onclick="startQuiz('angular')" style="background: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold;">
+                    Start Angular Quiz
+                  </button>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; min-width: 250px; backdrop-filter: blur(10px);">
+                  <h3 style="color: #4FC3F7; margin-bottom: 15px;">Express</h3>
+                  <p style="margin-bottom: 20px;">Test your knowledge in Express.js</p>
+                  <button onclick="startQuiz('express')" style="background: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold;">
+                    Start Express Quiz
+                  </button>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; min-width: 250px; backdrop-filter: blur(10px);">
+                  <h3 style="color: #4FC3F7; margin-bottom: 15px;">Node.js</h3>
+                  <p style="margin-bottom: 20px;">Test your knowledge in Node.js</p>
+                  <button onclick="startQuiz('node')" style="background: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold;">
+                    Start Node.js Quiz
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }, 1000);
+    });
+    
+    // Quiz functionality
+    let currentQuiz = null;
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let selectedAnswer = '';
+    
+    window.startQuiz = function(topic) {
+      fetch('http://localhost:3000/questions/' + topic)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to load questions');
+          }
+          return response.json();
+        })
+        .then(questions => {
+          currentQuiz = { topic, questions };
+          currentQuestionIndex = 0;
+          score = 0;
+          selectedAnswer = '';
+          // Initialize userAnswers array with empty strings for all questions
+          window.userAnswers = new Array(questions.length).fill('');
+          console.log('Quiz loaded:', topic, 'Questions:', questions.length, 'UserAnswers initialized:', window.userAnswers.length);
+          showQuestion();
+        })
+        .catch(error => {
+          alert('Failed to load questions. Please make sure the backend server is running on port 3000.');
+          console.error('Error:', error);
+        });
+    };
+    
+    function showQuestion() {
+      const appRoot = document.querySelector('app-root');
+      const question = currentQuiz.questions[currentQuestionIndex];
+      const progress = ((currentQuestionIndex + 1) / currentQuiz.questions.length) * 100;
+      
+      appRoot.innerHTML = '<div style="max-width: 700px; margin: 0 auto; padding: 20px; color: white;">' +
+        '<div style="text-align: center; margin-bottom: 30px;">' +
+          '<h2>' + currentQuiz.topic.charAt(0).toUpperCase() + currentQuiz.topic.slice(1) + ' Quiz</h2>' +
+          '<div style="width: 100%; height: 12px; background: rgba(255,255,255,0.2); border-radius: 6px; margin-bottom: 15px;">' +
+            '<div style="height: 100%; background: linear-gradient(90deg, #007bff, #0056b3); border-radius: 6px; width: ' + progress + '%; transition: width 0.5s ease;"></div>' +
+          '</div>' +
+          '<div>Question ' + (currentQuestionIndex + 1) + ' of ' + currentQuiz.questions.length + '</div>' +
+        '</div>' +
+        
+        '<div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; backdrop-filter: blur(10px);">' +
+          '<h3 style="margin-bottom: 25px; font-size: 20px; line-height: 1.5;">' + question.question + '</h3>' +
+          '<div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px;" id="options-container">' +
+          '</div>' +
+          
+          '<div style="text-align: right;">' +
+            '<button onclick="nextQuestion()" ' +
+                    'style="background: #28a745; color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold;" ' +
+                    'id="next-btn">' +
+              (currentQuestionIndex < currentQuiz.questions.length - 1 ? 'Next Question' : 'Finish Quiz') +
+            '</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+      
+      // Add options
+      const optionsContainer = document.getElementById('options-container');
+      question.options.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.onclick = () => selectAnswer(option);
+        button.style.cssText = 'padding: 15px 20px; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); border-radius: 10px; cursor: pointer; text-align: left; display: flex; align-items: center; font-size: 16px; color: white; transition: all 0.3s ease; margin-bottom: 5px;';
+        button.onmouseover = function() { 
+          if (!this.classList.contains('selected')) {
+            this.style.borderColor='#007bff'; 
+            this.style.background='rgba(0,123,255,0.2)'; 
+            this.style.transform='translateX(5px)';
+          }
+        };
+        button.onmouseout = function() { 
+          if (!this.classList.contains('selected')) {
+            this.style.borderColor='rgba(255,255,255,0.3)'; 
+            this.style.background='rgba(255,255,255,0.1)'; 
+            this.style.transform='translateX(0px)';
+          }
+        };
+        button.id = 'option-' + index;
+        button.innerHTML = '<span style="background: #007bff; color: white; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; font-size: 14px; transition: all 0.3s ease;">' +
+          String.fromCharCode(65 + index) +
+          '</span>' + option;
+        optionsContainer.appendChild(button);
+      });
+    }
+    
+    window.selectAnswer = function(answer) {
+      selectedAnswer = answer;
+      const nextBtn = document.getElementById('next-btn');
+      nextBtn.disabled = false;
+      nextBtn.style.opacity = '1';
+      nextBtn.style.cursor = 'pointer';
+      nextBtn.style.background = '#28a745';
+      
+      // Highlight selected option with much more visible styling
+      const options = document.querySelectorAll('[id^="option-"]');
+      options.forEach((option, index) => {
+        const span = option.querySelector('span');
+        option.classList.remove('selected');
+        
+        if (currentQuiz.questions[currentQuestionIndex].options[index] === answer) {
+          // Selected option styling - very distinct
+          option.classList.add('selected');
+          option.style.borderColor = '#28a745';
+          option.style.background = 'linear-gradient(135deg, rgba(40,167,69,0.4), rgba(40,167,69,0.2))';
+          option.style.color = '#ffffff';
+          option.style.fontWeight = 'bold';
+          option.style.transform = 'scale(1.02)';
+          option.style.boxShadow = '0 4px 15px rgba(40,167,69,0.3)';
+          span.style.background = '#28a745';
+          span.style.transform = 'scale(1.1)';
+          
+          // Add a checkmark or selection indicator
+          if (!option.querySelector('.checkmark')) {
+            const checkmark = document.createElement('span');
+            checkmark.className = 'checkmark';
+            checkmark.style.cssText = 'margin-left: auto; color: #28a745; font-weight: bold; font-size: 18px;';
+            checkmark.innerHTML = '✓';
+            option.appendChild(checkmark);
+          }
+        } else {
+          // Reset other options to default
+          option.style.borderColor = 'rgba(255,255,255,0.3)';
+          option.style.background = 'rgba(255,255,255,0.1)';
+          option.style.color = 'white';
+          option.style.fontWeight = 'normal';
+          option.style.transform = 'scale(1)';
+          option.style.boxShadow = 'none';
+          span.style.background = '#007bff';
+          span.style.transform = 'scale(1)';
+          
+          // Remove checkmark if exists
+          const checkmark = option.querySelector('.checkmark');
+          if (checkmark) {
+            checkmark.remove();
+          }
+        }
+      });
+    };
+    
+    window.nextQuestion = function() {
+      // Store the user's answer at the current question index (even if empty)
+      window.userAnswers[currentQuestionIndex] = selectedAnswer || '';
+      console.log(`Question ${currentQuestionIndex + 1} completed. Answer: "${selectedAnswer || 'Not answered'}"`);
+      
+      if (selectedAnswer && selectedAnswer === currentQuiz.questions[currentQuestionIndex].answer) {
+        score++;
+      }
+      
+      if (currentQuestionIndex < currentQuiz.questions.length - 1) {
+        currentQuestionIndex++;
+        selectedAnswer = '';
+        showQuestion();
+      } else {
+        console.log('Quiz complete. Final userAnswers:', window.userAnswers);
+        showResults();
+      }
+    };
+    
+    function showResults() {
+      console.log('Showing results. Total questions:', currentQuiz.questions.length, 'User answers:', window.userAnswers);
+      
+      const appRoot = document.querySelector('app-root');
+      const percentage = Math.round((score / currentQuiz.questions.length) * 100);
+      let scoreClass = 'poor';
+      let message = 'Keep Practicing! 💪';
+      let detailedMessage = "Don't give up! Practice makes perfect. Try again to improve your score.";
+      
+      if (percentage >= 80) {
+        scoreClass = 'excellent';
+        message = 'Excellent! 🎉';
+        detailedMessage = 'Outstanding performance! You have mastered this topic.';
+      } else if (percentage >= 60) {
+        scoreClass = 'good';
+        message = 'Good Job! 👍';
+        detailedMessage = 'Good work! You have a solid understanding of the basics.';
+      }
+      
+      const colors = {
+        excellent: '#28a745',
+        good: '#ffc107',
+        poor: '#dc3545'
+      };
+      
+      // Create detailed review of all questions
+      let reviewHtml = '';
+      console.log('Creating detailed review. Total questions:', currentQuiz.questions.length);
+      console.log('User answers array:', window.userAnswers);
+      console.log('User answers length:', window.userAnswers.length);
+      
+      for (let index = 0; index < currentQuiz.questions.length; index++) {
+        const question = currentQuiz.questions[index];
+        const userAnswer = window.userAnswers[index] || '';
+        const correctAnswer = question.answer;
+        const isCorrect = userAnswer === correctAnswer;
+        const wasAnswered = userAnswer !== '' && userAnswer !== null && userAnswer !== undefined;
+        
+        console.log(`Question ${index + 1}: User answer: "${userAnswer}", Correct: "${correctAnswer}", Was answered: ${wasAnswered}`);
+        
+        // Create options display
+        let optionsHtml = '';
+        question.options.forEach((option, optionIndex) => {
+          let optionStyle = 'padding: 8px 12px; margin: 4px 0; border-radius: 5px; ';
+          let optionIcon = '';
+          
+          if (option === correctAnswer) {
+            optionStyle += 'background: rgba(40,167,69,0.2); border: 1px solid #28a745; color: #28a745;';
+            optionIcon = ' ✓ (Correct)';
+          } else if (option === userAnswer && wasAnswered && !isCorrect) {
+            optionStyle += 'background: rgba(220,53,69,0.2); border: 1px solid #dc3545; color: #dc3545;';
+            optionIcon = ' ✗ (Your Answer)';
+          } else if (option === userAnswer && wasAnswered && isCorrect) {
+            optionStyle += 'background: rgba(40,167,69,0.2); border: 1px solid #28a745; color: #28a745;';
+            optionIcon = ' ✓ (Your Answer)';
+          } else {
+            optionStyle += 'background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: #ccc;';
+          }
+          
+          optionsHtml += '<div style="' + optionStyle + '">' +
+            '<span style="background: ' + (option === correctAnswer ? '#28a745' : (option === userAnswer && wasAnswered && !isCorrect ? '#dc3545' : '#6c757d')) + '; color: white; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; font-weight: bold; font-size: 12px;">' +
+              String.fromCharCode(65 + optionIndex) +
+            '</span>' + option + optionIcon +
+          '</div>';
+        });
+        
+        let statusColor = wasAnswered ? (isCorrect ? '#28a745' : '#dc3545') : '#ffc107';
+        let statusText = wasAnswered ? (isCorrect ? 'Correct' : 'Incorrect') : 'Not Answered';
+        
+        reviewHtml += '<div style="background: rgba(255,255,255,0.05); margin: 15px 0; padding: 20px; border-radius: 10px; border-left: 5px solid ' + statusColor + ';">' +
+          '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">' +
+            '<div style="font-weight: bold; color: #fff; font-size: 16px;">Question ' + (index + 1) + ':</div>' +
+            '<div style="background: ' + statusColor + '; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: bold;">' + statusText + '</div>' +
+          '</div>' +
+          '<div style="margin-bottom: 15px; color: #fff; line-height: 1.5;">' + question.question + '</div>' +
+          '<div style="margin: 15px 0;">' + optionsHtml + '</div>' +
+          '<div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">' +
+            '<div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;">' +
+              '<div><strong style="color: ' + (wasAnswered ? (isCorrect ? '#28a745' : '#dc3545') : '#ffc107') + ';">Your Answer:</strong> ' + (wasAnswered ? userAnswer : 'Not Answered') + '</div>' +
+              '<div><strong style="color: #28a745;">Correct Answer:</strong> ' + correctAnswer + '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      }
+      
+      appRoot.innerHTML = '<div style="max-width: 800px; margin: 0 auto; padding: 20px; color: white;">' +
+        '<div style="text-align: center; background: rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px); margin-bottom: 30px;">' +
+          '<h2 style="margin-bottom: 15px; font-size: 28px;">Quiz Complete!</h2>' +
+          '<div style="background: #007bff; color: white; padding: 8px 20px; border-radius: 20px; font-weight: bold; display: inline-block; margin-bottom: 30px;">' +
+            currentQuiz.topic.charAt(0).toUpperCase() + currentQuiz.topic.slice(1) + ' Quiz' +
+          '</div>' +
+          
+          '<div style="margin: 30px 0;">' +
+            '<div style="width: 150px; height: 150px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 8px solid ' + colors[scoreClass] + '; background: rgba(255,255,255,0.1);">' +
+              '<span style="font-size: 36px; font-weight: bold;">' + score + '</span>' +
+              '<span style="font-size: 24px; margin: 0 5px;">/</span>' +
+              '<span style="font-size: 24px;">' + currentQuiz.questions.length + '</span>' +
+            '</div>' +
+            
+            '<div style="font-size: 32px; font-weight: bold; margin: 20px 0; color: ' + colors[scoreClass] + ';">' +
+              percentage + '%' +
+            '</div>' +
+            
+            '<div style="margin: 30px 0;">' +
+              '<h3 style="margin-bottom: 10px; font-size: 24px;">' + message + '</h3>' +
+              '<p style="font-size: 16px; line-height: 1.5; opacity: 0.9;">' + detailedMessage + '</p>' +
+            '</div>' +
+          '</div>' +
+          
+          '<div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">' +
+            '<button onclick="goHome()" style="background: #007bff; color: white; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; font-size: 16px; font-weight: bold;">' +
+              '🏠 Take Another Quiz' +
+            '</button>' +
+            '<button onclick="startQuiz(\'' + currentQuiz.topic + '\')" style="background: #6c757d; color: white; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; font-size: 16px; font-weight: bold;">' +
+              '🔄 Retake This Quiz' +
+            '</button>' +
+            '<button onclick="toggleReview()" id="review-btn" style="background: #17a2b8; color: white; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; font-size: 16px; font-weight: bold;">' +
+              '📊 View Detailed Review' +
+            '</button>' +
+          '</div>' +
+        '</div>' +
+        
+        '<div id="detailed-review" style="display: none;">' +
+          '<h3 style="text-align: center; margin-bottom: 20px; color: #fff;">📚 Detailed Review</h3>' +
+          '<div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center;">' +
+            '<div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">' +
+              '<div style="color: #28a745;"><strong>Correct:</strong> ' + score + '</div>' +
+              '<div style="color: #dc3545;"><strong>Incorrect:</strong> ' + (currentQuiz.questions.length - score) + '</div>' +
+              '<div style="color: #fff;"><strong>Total Questions:</strong> ' + currentQuiz.questions.length + '</div>' +
+            '</div>' +
+          '</div>' +
+          reviewHtml +
+        '</div>' +
+      '</div>';
+    }
+    
+    window.goHome = function() {
+      window.userAnswers = []; // Reset user answers
+      currentQuiz = null;
+      currentQuestionIndex = 0;
+      score = 0;
+      selectedAnswer = '';
+      location.reload();
+    };
+    
+    window.toggleReview = function() {
+      const reviewSection = document.getElementById('detailed-review');
+      const reviewBtn = document.getElementById('review-btn');
+      
+      if (reviewSection.style.display === 'none') {
+        reviewSection.style.display = 'block';
+        reviewBtn.innerHTML = '📊 Hide Detailed Review';
+        reviewSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        reviewSection.style.display = 'none';
+        reviewBtn.innerHTML = '📊 View Detailed Review';
+      }
+    };
+  </script>
+</body>
+</html>

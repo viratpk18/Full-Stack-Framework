@@ -1,0 +1,62 @@
+[
+  {
+    "question": "Which of the following is a correct Python data type?",
+    "options": ["list", "car", "table", "keyboard"],
+    "answer": "list"
+  },
+  {
+    "question": "Which keyword is used to define a function in Python?",
+    "options": ["function", "def", "func", "define"],
+    "answer": "def"
+  },
+  {
+    "question": "How do you create a comment in Python?",
+    "options": ["//", "#", "/*", "<!--"],
+    "answer": "#"
+  },
+  {
+    "question": "Which of these is used to create a list in Python?",
+    "options": ["()", "[]", "{}", "<>"],
+    "answer": "[]"
+  },
+  {
+    "question": "What does 'len()' function do in Python?",
+    "options": ["Returns the length of an object", "Deletes an object", "Creates a new object", "Prints an object"],
+    "answer": "Returns the length of an object"
+  },
+  {
+    "question": "Which keyword is used to create a loop in Python?",
+    "options": ["for", "loop", "repeat", "iterate"],
+    "answer": "for"
+  },
+  {
+    "question": "How do you create a dictionary in Python?",
+    "options": ["{}", "[]", "()", "dict()"],
+    "answer": "{}"
+  },
+  {
+    "question": "Which method is used to add an item to a list?",
+    "options": ["append()", "add()", "insert()", "push()"],
+    "answer": "append()"
+  },
+  {
+    "question": "What is the correct way to import a module in Python?",
+    "options": ["import module_name", "include module_name", "require module_name", "use module_name"],
+    "answer": "import module_name"
+  },
+  {
+    "question": "Which operator is used for exponentiation in Python?",
+    "options": ["**", "^", "pow", "exp"],
+    "answer": "**"
+  },
+  {
+    "question": "How do you check if a key exists in a dictionary?",
+    "options": ["key in dict", "dict.hasKey(key)", "dict.contains(key)", "key.exists(dict)"],
+    "answer": "key in dict"
+  },
+  {
+    "question": "Which method converts a string to uppercase in Python?",
+    "options": ["upper()", "toUpper()", "upperCase()", "capitalize()"],
+    "answer": "upper()"
+  }
+]

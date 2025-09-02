@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is Angular?",
+    "options": ["TypeScript-based web framework", "JavaScript library", "CSS framework", "Database"],
+    "answer": "TypeScript-based web framework"
+  },
+  {
+    "question": "Which decorator is used to define a component in Angular?",
+    "options": ["@Component", "@Directive", "@Injectable", "@Module"],
+    "answer": "@Component"
+  },
+  {
+    "question": "What is the file extension for Angular templates?",
+    "options": [".html", ".ts", ".css", ".js"],
+    "answer": ".html"
+  },
+  {
+    "question": "Which Angular CLI command creates a new component?",
+    "options": ["ng generate component", "ng create component", "ng new component", "ng add component"],
+    "answer": "ng generate component"
+  },
+  {
+    "question": "What is used for two-way data binding in Angular?",
+    "options": ["[(ngModel)]", "[ngModel]", "(ngModel)", "{ngModel}"],
+    "answer": "[(ngModel)]"
+  },
+  {
+    "question": "Which directive is used for conditional rendering in Angular?",
+    "options": ["*ngIf", "*ngFor", "*ngSwitch", "*ngShow"],
+    "answer": "*ngIf"
+  },
+  {
+    "question": "Which Angular feature is used for dependency injection?",
+    "options": ["Services", "Components", "Directives", "Pipes"],
+    "answer": "Services"
+  },
+  {
+    "question": "What is the default port for Angular development server?",
+    "options": ["4200", "3000", "8080", "5000"],
+    "answer": "4200"
+  },
+  {
+    "question": "Which lifecycle hook is called after component initialization?",
+    "options": ["ngOnInit", "ngAfterInit", "ngOnStart", "ngComponentInit"],
+    "answer": "ngOnInit"
+  },
+  {
+    "question": "Which Angular feature is used for routing?",
+    "options": ["Router", "Navigator", "Route", "Path"],
+    "answer": "Router"
+  }
+]
